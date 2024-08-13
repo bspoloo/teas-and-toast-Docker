@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "*" ]
 
+env:
+  AZURE_WEBAPP_NAME: 'TeastAndToastNowWeb'
+  AZURE_WEBAPP_PACKAGE_PATH: '.'
+  
 jobs:
   install-dependencies:
     runs-on: ubuntu-latest
@@ -31,7 +35,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: '20.x'
 
       - name: Install dependencies
         run: npm ci
@@ -77,10 +81,11 @@ jobs:
         run: npm run build
 
       - name: Deploy to Azure
-        env:
-          AZURE_WEBAPP_NAME: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          AZURE_WEBAPP_PACKAGE_PATH: .
-          NODE_VERSION: '20.x'
-        run: |
-          npm run deploy
-
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+          
+      - name: Check deployed app
+        run: curl -I https://teastandtoastnowweb-gkgmbve9dqbmhhhp.eastus-01.azurewebsites.net/

@@ -85,4 +85,4 @@ jobs:
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
           
       - name: Check deployed app
-        run: curl -I https://teastandtoastnowweb-gkgmbve9dqbmhhhp.eastus-01.azurewebsites.net/
+        run: curl -I https://teastandtoastnowweb.azurewebsites.net/

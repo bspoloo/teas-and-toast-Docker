@@ -12,6 +12,14 @@ const nextConfig = {
 
         return config;
     },
+    async rewrites() {
+        return [
+            {
+                source: '/home',
+                destination: '/atomic/pages/home',
+            },
+        ];
+    },
 };
 
 export default nextConfig;

@@ -29,8 +29,39 @@ body {
 .contact{
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
-  width: 11%;
+  align-items: center;
+  width: 50%;
+  height: 70%;
+}
+.LinkMenu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: #333;
+  border: 2px solid transparent;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  border-radius: 20px;
 }
 
+.LinkMenu:hover {
+  color: #474747;
+  background-color: #DBDFD0;
+  border-color: #DBDFD0;
+  cursor: pointer;
+}
 
+.home-image1{
+  background-image: url('./resources/image/home-image.png');
+  background-size: cover; 
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.background-home{
+  height: 40%;
+}

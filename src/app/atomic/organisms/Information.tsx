@@ -1,6 +1,6 @@
 import Image from "next/image";
-import Contact from "@/app/Atomic Design/Molecules/Contact";
-import Social from "../Molecules/Social";
+import Contact from "@/app/atomic/molecules/Contact";
+import Social from "../molecules/Social";
 
 function Information() {
     return (

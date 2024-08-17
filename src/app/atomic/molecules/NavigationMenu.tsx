@@ -6,7 +6,7 @@ function NavigationMenu() {
     return (
         <>
             <div className=" flex flex-row flex-wrap">
-                <LinkMenu className={className} url="/home" title="Home" />
+                <LinkMenu className={className} url="/" title="Home" />
                 <LinkMenu className={className} url="/Cocktails" title="Cocktails" />
                 <LinkMenu className={className} url="/Meals" title="Meals" />
                 <LinkMenu className={className} url="/Search" title="Search" />

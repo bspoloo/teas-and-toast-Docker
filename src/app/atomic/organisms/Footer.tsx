@@ -9,7 +9,7 @@ const Footer = () => {
     return (
         <footer className="bg-[#474747] text-white py-8 px-4">
 
-            <div className="container mx-auto flex flex-wrap justify-between ">
+            <div className="container mx-auto flex flex-wrap justify-around ">
                 <FooterSocial/>
                 <FooterPages/>
                 <FooterFollow/>

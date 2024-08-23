@@ -16,7 +16,6 @@ function useProduct(url: string, endopint: string): { product: any } {
         getData(url, endopint)
             .then(product => {
                 setProduct(product);
-                console.log(product);
             }
         )
     }, [url, endopint]);

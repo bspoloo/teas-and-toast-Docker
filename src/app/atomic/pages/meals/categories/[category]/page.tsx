@@ -7,12 +7,11 @@ import LinkMenu from "@/app/atomic/atoms/LinkMenu";
 import ProductCard from "@/app/atomic/organisms/ProductCard";
 import Wait from "@/app/atomic/organisms/Wait";
 
-//page for the categories meals
+
 
 function CategoryPage() {
     const router = useParams();
     const mealCategory = router?.category;
-    console.log(mealCategory);
     
     const products = useRandomProducts(1, MEAL_API, 'filter.php?c='+mealCategory);
     const categories = useRandomProducts(1, MEAL_API, 'list.php?c=list');

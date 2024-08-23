@@ -7,14 +7,12 @@ import LinkMenu from "@/app/atomic/atoms/LinkMenu";
 import ProductCard from "@/app/atomic/organisms/ProductCard";
 import Wait from "@/app/atomic/organisms/Wait";
 
-//page for the categories drink
+
 function CategoryPage() {
     const router = useParams();
     const cocktailCategory = router?.category;
     const products = useRandomProducts(1, COCKTAIL_API, 'filter.php?c='+cocktailCategory);
     const categories = useRandomProducts(1, COCKTAIL_API, 'list.php?c=list');
-
-    console.log(cocktailCategory);
 
     return (
         <main className="flex page-space flex-col items-center justify-between flex-wrap">

@@ -7,9 +7,9 @@ const RecipeInstructions = ({content, className}: Prop) => {
     return (
         <div className={`font-sans ${className}`}>
             <ul className="list-decimal list-inside">
-                {content.map(line=> { 
+                {content.map((line, index)=> { 
                     if(line === "") return
-                    return(<li>{line}</li>)
+                    return(<li key={index}>{line}</li>)
                 })}
             </ul>
         </div>

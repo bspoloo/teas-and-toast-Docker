@@ -7,9 +7,9 @@ function NavigationMenu() {
         <>
             <div className=" flex flex-row flex-wrap">
                 <LinkMenu className={className} url="/" title="Home" />
-                <LinkMenu className={className} url="/Cocktails" title="Cocktails" />
-                <LinkMenu className={className} url="/Meals" title="Meals" />
-                <LinkMenu className={className} url="/Search" title="Search" />
+                <LinkMenu className={className} url="/cocktails" title="Cocktails" />
+                <LinkMenu className={className} url="/meals" title="Meals" />
+                <LinkMenu className={className} url="/search" title="Search" />
             </div>
         </>
     );

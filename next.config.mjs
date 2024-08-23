@@ -21,7 +21,15 @@ const nextConfig = {
             {
                 source: '/meals/:id',
                 destination: '/atomic/pages/meals/:id',
-            }
+            },
+            {
+                source: '/meals',
+                destination: '/atomic/pages/meals',
+            },
+            {
+                source: '/cocktails',
+                destination: '/atomic/pages/cocktails',
+            },
         ];
     },
 };

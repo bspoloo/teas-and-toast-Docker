@@ -1,5 +1,5 @@
 import React from "react";
-interface TitleProps{
+type TitleProps = {
     className: string;
     TextContent: string;
 }

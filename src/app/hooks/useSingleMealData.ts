@@ -32,7 +32,7 @@ export const useSingleMealData = (id: string | string[]) => {
           setVideoTutorial(currentMeal.strYoutube || '');
           setIngredients(newIngredients);
           setMeasures(newMeasures);
-          // setLoading(false);
+          setLoading(false);
         })
       }
     },[id]);

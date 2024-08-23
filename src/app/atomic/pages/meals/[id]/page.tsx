@@ -1,12 +1,12 @@
 'use client';
 import { useParams } from "next/navigation";
-import { useSingleMealData } from "@/hooks/useSingleMealData";
+import { useSingleMealData } from "@/app/hooks/useSingleMealData";
 import Title from "@/app/atomic/atoms/Title";
 import VideoTutorial from "@/app/atomic/atoms/singleMealView/VideoTutorial";
 import RecipeInstructions  from "@/app/atomic/organisms/singleMealView/RecipeInstructions";
 import IngredientsList from "@/app/atomic/organisms/singleMealView/IngredientsList";
 import ImageVector from "@/app/atomic/atoms/ImageVector";
-import { Fullscreen } from "lucide-react";
+import Wait from "@/app/atomic/organisms/Wait";
 
 export default function SingleMealPage() {
   const router = useParams();
@@ -16,7 +16,9 @@ export default function SingleMealPage() {
     <div className="ml-10 mr-10 md:ml-40 md:mr-40 mb-10 mt-10">
       <div className="flex flex-col gap-y-10 items-center">
         {loading? (
-          <img src="/loading-gifs/simple-frying-pan.gif" />
+          <div>
+            <Wait/>
+          </div>
 
         ): (
           <>

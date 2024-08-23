@@ -7,6 +7,7 @@ import LinkMenu from "@/app/atomic/atoms/LinkMenu";
 import ProductCard from "@/app/atomic/organisms/ProductCard";
 import Wait from "@/app/atomic/organisms/Wait";
 
+//page for the categories meals
 
 function CategoryPage() {
     const router = useParams();

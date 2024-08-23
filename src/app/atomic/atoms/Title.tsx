@@ -6,6 +6,7 @@ interface TitleProps{
 }
 
 function Title({className, TextContent}: TitleProps){
+    console.log("título " +TextContent)
     return(
         <div className={className}>
             <h1 style={{ fontFamily: 'Playfair Display' }}>{TextContent}</h1>

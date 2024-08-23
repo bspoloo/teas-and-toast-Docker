@@ -9,9 +9,7 @@ type VideoProps = {
 }
 
 const VideoTutorial = ({src, containerStyle,videStyle, height, width}: VideoProps) => {
-    console.log("src "+ src);
     const videoId = src.split('v=')[1];
-    console.log("videoId "+ videoId);
     return (
         <div className={`${containerStyle}`}>
         <div className="relative w-full pb-[56.25%]">

@@ -30,6 +30,10 @@ const nextConfig = {
                 source: '/cocktails',
                 destination: '/atomic/pages/cocktails',
             },
+            {
+                source: '/cocktails/:id',
+                destination: '/atomic/pages/cocktails/:id',
+            },
         ];
     },
 };

@@ -22,7 +22,7 @@ function CategoryPage() {
                 {categories.length > 0 && categories[0].meals.length > 0 ?
 
                     categories[0].meals.map((category: any, index: any) => (
-                        <LinkMenu url={'/meals/category/'+category.strCategory} title={category.strCategory} className="rounded-full font-bold p-4 border-2 border-[#2C2F24] text-[#2C2F24] hover:bg-[#AD343E] hover:text-white hover:border-[#AD343E]"/>
+                        <LinkMenu  key={index} url={'/meals/category/'+category.strCategory} title={category.strCategory} className="rounded-full font-bold p-4 border-2 border-[#2C2F24] text-[#2C2F24] hover:bg-[#AD343E] hover:text-white hover:border-[#AD343E]"/>
                     )): (
                         <div>
                             Loading categories...

@@ -65,3 +65,17 @@ body {
 .background-home{
   height: 40%;
 }
+
+.product-image{
+  width: 250px;
+  
+}
+.product-card:hover {
+  transform: translateY(-5px); /* Lift the card on hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Slightly stronger shadow on hover */
+  cursor: pointer;
+  
+}
+.page-space{
+  min-height: 100vh;
+}

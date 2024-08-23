@@ -9,8 +9,8 @@ function Presentation() {
         <div className=" inset-0 flex items-center flex-col">
             <TitlePresentation />
             <div className="flex flex-row flex-wrap gap-x-10 self-center justify-center items-center gap-6">
-                <LinkMenu url="/Meals" title="Look for a meal" className={clasName} />
-                <LinkMenu url="/Explore" title="Explore meals" className={clasName} />
+                <LinkMenu url="/meals" title="Look for a meal" className={clasName} />
+                <LinkMenu url="/search" title="Explore meals" className={clasName} />
             </div>
         </div>
     );

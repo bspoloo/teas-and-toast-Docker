@@ -11,7 +11,7 @@ export default function SingleCocktailPage() {
         <div className="flex flex-col gap-y-10 items-center">
           <SingleRecipePage 
             mealId={mealId}
-            recipeTyp={'cocktail'} 
+            recipeType={'cocktail'} 
             baseUrl={COCKTAIL_API}
           />
         </div>

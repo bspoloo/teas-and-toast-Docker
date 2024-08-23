@@ -11,7 +11,7 @@ export default function SingleMealPage() {
       <div className="flex flex-col gap-y-10 items-center">
         <SingleRecipePage 
           mealId={mealId}
-          recipeTyp={'meal'}
+          recipeType={'meal'}
           baseUrl={MEAL_API}
         />
       </div>

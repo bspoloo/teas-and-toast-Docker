@@ -10,11 +10,11 @@ import Wait from "@/app/atomic/organisms/Wait";
 
 type SingleRecipePageProps = {
     mealId: string | string[];
-    recipeTyp: string;
+    recipeType: string;
     baseUrl: string;
     }
-export default function SingleRecipePage({mealId, recipeTyp, baseUrl}: SingleRecipePageProps) {
-      const { ingredients, measures, videoTutorial, imageMeal, loading, recipeInstructions, titleRecipe} = useSingleRecipeData(mealId, recipeTyp, baseUrl);
+export default function SingleRecipePage({mealId, recipeType, baseUrl}: SingleRecipePageProps) {
+      const { ingredients, measures, videoTutorial, imageMeal, loading, recipeInstructions, titleRecipe} = useSingleRecipeData(mealId, recipeType, baseUrl);
     return (
         <>
             {loading ? (
@@ -25,7 +25,7 @@ export default function SingleRecipePage({mealId, recipeTyp, baseUrl}: SingleRec
                 <>
                     <Title className={'text-5xl'} TextContent={titleRecipe} />
                     <ImageVector classname="object-cover h-96" url={imageMeal} alt={titleRecipe} width={900} />
-                    <h1 className="text-2xl font-bold">Stepes to follow to achive this delicous recipe!!</h1>
+                    <h1 className="text-2xl font-bold">Steps to follow to achieve this delicious recipe!!</h1>
                     <RecipeInstructions content={recipeInstructions} />
                     <h1 className="text-2xl font-bold">What are the necessary measures for its preparation?</h1>
                     <IngredientsList ingredients={ingredients} measures={measures} />

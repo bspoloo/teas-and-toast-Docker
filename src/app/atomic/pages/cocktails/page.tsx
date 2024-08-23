@@ -24,6 +24,7 @@ export default function Page() {
                             name={product.drinks[0].strDrink}
                             image={product.drinks[0].strDrinkThumb}
                             category={product.drinks[0].strCategory}
+                            singleRecipeRoute="/cocktails/"
                         />
                     )): (
                         <div>

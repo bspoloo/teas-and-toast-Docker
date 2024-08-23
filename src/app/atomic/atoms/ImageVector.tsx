@@ -2,8 +2,8 @@
 interface ImageProp {
     url: any;
     alt: string;
-    width: number;
-    height: number;
+    width?: number;
+    height?: number;
     classname: string
 }
 

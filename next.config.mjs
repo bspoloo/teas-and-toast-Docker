@@ -19,6 +19,10 @@ const nextConfig = {
                 destination: '/atomic/pages/home',
             },
             {
+                source: '/meals/:id',
+                destination: '/atomic/pages/meals/:id',
+            },
+            {
                 source: '/meals',
                 destination: '/atomic/pages/meals',
             },

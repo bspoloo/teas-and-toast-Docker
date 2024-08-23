@@ -22,6 +22,7 @@ export default function Page() {
                             name={product.meals[0].strMeal}
                             image={product.meals[0].strMealThumb}
                             category={product.meals[0].strCategory}
+                            singleRecipeRoute="/meals/"
                         />
                     )): (
                         <div>

@@ -1,6 +1,5 @@
 "use client";
 
-import useProduct from "@/app/hooks/useProducts"
 import ProductCard from "../../organisms/ProductCard"
 import { MEAL_API } from "@/constants/baseUrls";
 import useRandomProducts from "@/app/hooks/useRandomProducts";
@@ -8,7 +7,6 @@ import Wait from '../../organisms/Wait'
 import Categories from "../../organisms/Categories";
 import { useContext } from "react";
 import { CategoriesMealContext } from "@/constants/CategoriesContext";
-import { metadata } from "@/constants/metadata";
 
 export default function Page() {
 

@@ -1,9 +1,7 @@
 "use client";
 
-import useRandomProducts from "@/app/hooks/useRandomProducts";
 import { useParams } from "next/navigation";
 import { COCKTAIL_API } from "@/constants/baseUrls";
-import LinkMenu from "@/app/atomic/atoms/LinkMenu";
 import ProductCard from "@/app/atomic/organisms/ProductCard";
 import Wait from "@/app/atomic/organisms/Wait";
 import useProduct from "@/app/hooks/useProducts";

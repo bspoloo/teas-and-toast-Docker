@@ -1,6 +1,5 @@
 "use client";
 
-import useProducts from "@/app/hooks/useProducts"
 import ProductCard from "../../organisms/ProductCard"
 import { COCKTAIL_API } from "@/constants/baseUrls";
 import useRandomProducts from "@/app/hooks/useRandomProducts";

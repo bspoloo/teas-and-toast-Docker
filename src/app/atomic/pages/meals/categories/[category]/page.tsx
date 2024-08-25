@@ -12,9 +12,9 @@ import { CategoriesMealContext } from "@/constants/CategoriesContext";
 
 
 function CategoryPage() {
+    
     const router = useParams();
     const mealCategory = router?.category;
-
     const products: any = useProduct(MEAL_API, 'filter.php?c=' + mealCategory);
     const categories = useContext(CategoriesMealContext);
     

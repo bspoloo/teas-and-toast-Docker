@@ -1,12 +1,5 @@
 import { useEffect, useState } from "react";
-import { MEAL_API } from "@/constants/baseUrls";
-
-
-function getData(url: string, endopint: string) {
-    return fetch(url + endopint)
-        .then(response => response.json())
-        .then(data => data)
-}
+import getData from '../functions/getData'
 
 function useProduct(url: string, endopint: string): { product: any } {
 
@@ -19,8 +12,6 @@ function useProduct(url: string, endopint: string): { product: any } {
             }
         )
     }, [url, endopint]);
-
     return {product};
 }
-
 export default useProduct;

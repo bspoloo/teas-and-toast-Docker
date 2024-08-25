@@ -3,14 +3,13 @@ import { Inter } from "next/font/google";
 import Header from "./atomic/organisms/Header";
 import Footer from "./atomic/organisms/Footer";
 import "./globals.css";
-
+import ProductProvider from "./providers/ProductProviders";
 
 const inter = Inter({ subsets: ["latin"] });
 
-
 export const metadata: Metadata = {
-  title: "Taste and Toast Now",
-  description: "Software develpment",
+  title: 'Taste and Toast Now',
+  description: 'Software development',
 };
 
 export default function RootLayout({
@@ -21,9 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Header/>
-        {children}
-        <Footer/>
+        <ProductProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ProductProvider>
       </body>
     </html>
   );

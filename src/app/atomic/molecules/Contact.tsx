@@ -1,6 +1,6 @@
 import TextContent from '../atoms/TextContent';
 import ImageVector from '../atoms/ImageVector';
-import Phone from '@/app/resources/svg/phone.svg'; // Asegúrate de que este path sea correcto
+import Phone from '@/app/resources/svg/phone.svg'; 
 
 function Contact() {
     return (

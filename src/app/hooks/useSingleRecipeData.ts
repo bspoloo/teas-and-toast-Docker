@@ -12,14 +12,7 @@ const useSingleRecipeData = (id: string | string[], recipeType: string, baseUrl:
 
   const processRecipeData = (data: any) => {
     const currentRecipe = data;
-    const newIngredients = [];
-    const newMeasures = [];
-    for (let i = 1; i <= 20; i++) {
-      if (currentRecipe[`strIngredient${i}`] && currentRecipe[`strIngredient${i}`] !== 'null' && currentRecipe[`strIngredient${i}`] !== '') {
-        newIngredients.push(currentRecipe[`strIngredient${i}`]);
-        newMeasures.push(currentRecipe[`strMeasure${i}`]);
-      }
-    }
+    const {newIngredients, newMeasures} = getIngredientsAndMeasures(currentRecipe);
     setRecipeInstructions(currentRecipe.strInstructions.split('.'));
     setImageRecipe(recipeType === 'cocktail' ? currentRecipe.strDrinkThumb : currentRecipe.strMealThumb);
     setTitleRecipe(recipeType === 'cocktail' ? currentRecipe.strDrink : currentRecipe.strMeal);
@@ -27,22 +20,30 @@ const useSingleRecipeData = (id: string | string[], recipeType: string, baseUrl:
     setIngredients(newIngredients);
     setMeasures(newMeasures);
     setLoading(false);
-
   };
+
+  const getIngredientsAndMeasures= (data) => {
+    const newIngredients = [];
+    const newMeasures = [];
+    for (let i = 1; i <= 20; i++) {
+      if (data[`strIngredient${i}`] && data[`strIngredient${i}`] !== 'null' && data[`strIngredient${i}`] !== '') {
+        newIngredients.push(data[`strIngredient${i}`]);
+        newMeasures.push(data[`strMeasure${i}`]);
+      }
+    }
+    return { newIngredients, newMeasures };
+  }
+  
 
   useEffect(() => {
     if (id) {
-      setLoading(true);
-      const timeoutId = setTimeout(() => {
-        setLoading(false);
-      }, 10000); 
+      
       getSingleRecipe(id, baseUrl).then((data) => {
         const currentRecipe = recipeType === 'cocktail' ? data.drinks[0] : data.meals[0];
-        clearTimeout(timeoutId); 
+
         processRecipeData(currentRecipe);
       }).catch(() => {
-        clearTimeout(timeoutId); 
-        setLoading(false); 
+
       });
     }
   }, [id, recipeType]);

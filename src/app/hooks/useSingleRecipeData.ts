@@ -22,7 +22,7 @@ const useSingleRecipeData = (id: string | string[], recipeType: string, baseUrl:
     setLoading(false);
   };
 
-  const getIngredientsAndMeasures= (data) => {
+  const getIngredientsAndMeasures= (data: any) => {
     const newIngredients = [];
     const newMeasures = [];
     for (let i = 1; i <= 20; i++) {

@@ -31,6 +31,10 @@ const nextConfig = {
                 destination: '/atomic/pages/cocktails',
             },
             {
+                source: '/meals/countries',
+                destination: '/atomic/pages/meals/countries',
+            },
+            {
                 source: '/cocktails/:id',
                 destination: '/atomic/pages/cocktails/:id',
             },
@@ -41,6 +45,10 @@ const nextConfig = {
             {
                 source: '/meals/category/:category',
                 destination: '/atomic/pages/meals/categories/:category',
+            },
+            {
+                source: '/meals/countries/:country',
+                destination: '/atomic/pages/meals/countries/:country',
             },
         ];
     },

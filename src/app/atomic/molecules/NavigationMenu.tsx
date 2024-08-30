@@ -1,16 +1,16 @@
 import React from "react";
 import LinkMenu from "../atoms/LinkMenu";
 
-function NavigationMenu() {
-    const className = ' LinkMenu font-semibold';
+function NavigationMenu({ className, linkStyle}: { className: string, linkStyle?: string }) {
+    const defaultLinkStyle = "LinkMenu font-semibold";
     return (
         <>
-            <div className=" flex flex-row flex-wrap">
-                <LinkMenu className={className} url="/" title="Home" />
-                <LinkMenu className={className} url="/cocktails" title="Cocktails" />
-                <LinkMenu className={className} url="/meals" title="Meals" />
-                <LinkMenu className={className} url="/meals/countries" title="Meals by Country" />
-                <LinkMenu className={className} url="/search" title="Search" />
+            <div className={`${className}`}>
+                <LinkMenu className={`${defaultLinkStyle} ${linkStyle}`} url="/" title="Home" />
+                <LinkMenu className={`${defaultLinkStyle} ${linkStyle}`} url="/cocktails" title="Cocktails" />
+                <LinkMenu className={`${defaultLinkStyle} ${linkStyle}`} url="/meals" title="Meals" />
+                <LinkMenu className={`${defaultLinkStyle} ${linkStyle}`} url="/meals/countries" title="Meals by Country" />
+                <LinkMenu className={`${defaultLinkStyle} ${linkStyle}`} url="/search" title="Search" />
             </div>
         </>
     );

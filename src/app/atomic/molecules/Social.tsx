@@ -6,7 +6,7 @@ import Git from '@/app/resources/svg/github.svg';
 
 function Social() {
     return (
-        <div className='contact justify-end pr-10 gap-9 flex-wrap'>
+        <div className='contact justify-end gap-x-9'>
             <Twitter />
             <Facebook />
             <Instagram />

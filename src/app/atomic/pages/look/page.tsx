@@ -17,18 +17,20 @@ type Product = {
 
 export default function Page() {
     const [inputText, setInputText] = useState('');
-    const { products, loading } = useIngredient('filter.php?i=', inputText);
+    const { products, loading, error } = useIngredient('search.php?s=', inputText);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputText(e.target.value);
+        console.log(products);
     };
     return (
         <main className="flex page-space flex-col items-center justify-between flex-wrap gap-9 mb-5 mt-5">
             <SearchPresentation
-                title="Ingredients"
-                text="Add ingredients to find dishes or cocktails that match your search." />
+                title="Find a meal or cocktail"
+                text="Search a meal o cocktal by their name "
+            />
             <SearchForm
-                text="Insert the Ingredient: "
+                text='Enter the name product'
                 handleChange={handleChange}
             />
 

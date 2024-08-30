@@ -15,9 +15,9 @@ function Header() {
             </div>
             <header className=" flex flex-row justify-around items-center flex-wrap bg-[#d7d7d9]">
                 <Title />
-                <Navigation className="hidden md:flex flex-row flex-wrap" /> 
+                <Navigation className="hidden md:flex flex-row flex-wrap" />
                 {isOpen && (
-                        <Navigation className="md:hidden  flex flex-wrap justify-center bg-[#d7d7d9] "/> 
+                        <Navigation className="md:hidden  flex flex-wrap justify-center bg-[#d7d7d9] "/>
                     )
                 }
                 <LinkMenu url="/look" className="hidden lg:block text-textColor-primary hover:bg-[#DBDFD0] border-2 -black rounded-full p-4" title="Look for a meal" />

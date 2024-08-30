@@ -54,6 +54,10 @@ const nextConfig = {
                 source: '/search',
                 destination: '/atomic/pages/search',
             },
+            {
+                source: '/look',
+                destination: '/atomic/pages/look',
+            },
         ];
     },
 };

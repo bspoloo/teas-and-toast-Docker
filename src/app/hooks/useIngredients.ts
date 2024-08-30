@@ -12,7 +12,7 @@ type Product = {
     type: string
 }
 
-function useIngredient(ingredient: string): { products: Product[], loading: boolean, error: string | null} {
+function useIngredient(endpoint: string, ingredient: string): { products: Product[], loading: boolean, error: string | null} {
     const urls = [MEAL_API, COCKTAIL_API];
     const [products, setProducts] = useState<Product[]>([]);
     const [loading, setLoading] = useState(true);
@@ -26,8 +26,9 @@ function useIngredient(ingredient: string): { products: Product[], loading: bool
             const newProducts: Product[] = [];
             for (const url of urls) {
                 try{
-                    const data = await getData(url, 'filter.php?i=' + encodeURIComponent(ingredient));
-
+                    const data = await getData(url, endpoint + encodeURIComponent(ingredient));
+                    console.log(data);
+                    
                     if (data.drinks) {
                         newProducts.push(...data.drinks.map((drink: any) => ({
                             id: drink.idDrink,
@@ -44,6 +45,7 @@ function useIngredient(ingredient: string): { products: Product[], loading: bool
                             type: 'meals'
                         })));
                     }
+                    console.log(data);
                 }catch (err){
                     setError('error fetching data')
                 } 

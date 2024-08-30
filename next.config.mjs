@@ -50,6 +50,10 @@ const nextConfig = {
                 source: '/meals/countries/:country',
                 destination: '/atomic/pages/meals/countries/:country',
             },
+            {
+                source: '/search',
+                destination: '/atomic/pages/search',
+            },
         ];
     },
 };

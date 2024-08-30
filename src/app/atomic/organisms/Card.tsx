@@ -7,15 +7,16 @@ import LinkMenu from "../atoms/LinkMenu";
 interface cardProps{
     title: string;
     description: string;
-    icon: any
+    icon: any,
+    url: string
 }
 
-const Card = ({ title, description, icon }: cardProps) => {
+const Card = ({ title, description, icon, url}: cardProps) => {
     return (
         <div className="w-full md:w-1/3 p-4">
             <div className="border border-gray-200 rounded-lg p-6 text-center">
                 <Description icon={icon} title={title} description={description}/>
-                <LinkMenu url="/Meals" title="Explore the Menu" className="text-red-600 font-bold hover:bg-red-100 px-4 py-2 rounded-lg"/>
+                <LinkMenu url={'/'+url} title="Explore the Menu" className="text-red-600 font-bold hover:bg-red-100 px-4 py-2 rounded-lg"/>
             </div>
         </div>
     )

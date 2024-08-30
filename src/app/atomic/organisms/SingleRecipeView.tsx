@@ -12,9 +12,9 @@ type SingleRecipePageProps = {
     mealId: string | string[];
     recipeType: string;
     baseUrl: string;
-    }
-export default function SingleRecipePage({mealId, recipeType, baseUrl}: SingleRecipePageProps) {
-      const { ingredients, measures, videoTutorial, imageMeal, loading, recipeInstructions, titleRecipe} = useSingleRecipeData(mealId, recipeType, baseUrl);
+}
+export default function SingleRecipePage({ mealId, recipeType, baseUrl }: SingleRecipePageProps) {
+    const { ingredients, measures, videoTutorial, imageMeal, loading, recipeInstructions, titleRecipe } = useSingleRecipeData(mealId, recipeType, baseUrl);
     return (
         <>
             {loading ? (

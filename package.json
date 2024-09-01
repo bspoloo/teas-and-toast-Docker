@@ -10,6 +10,7 @@
     "test": "echo \"No tests defined\" && exit 0"
   },
   "dependencies": {
+    "@react-pdf/renderer": "^3.4.4",
     "@svgr/webpack": "^8.1.0",
     "lucide-react": "^0.428.0",
     "next": "14.2.5",

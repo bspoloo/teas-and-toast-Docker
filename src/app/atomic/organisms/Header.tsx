@@ -17,7 +17,12 @@ function Header() {
                 <Title />
                 <Navigation className="hidden md:flex flex-row flex-wrap" />
                 {isOpen && (
-                        <Navigation className="md:hidden  flex flex-wrap justify-center bg-[#d7d7d9] "/>
+                    
+                        <div className="flex flex-col items-center">
+                            <Navigation className="md:hidden  flex flex-wrap justify-center bg-[#d7d7d9] "/>
+                            <LinkMenu url="/look" className="lg:block text-textColor-primary hover:bg-[#DBDFD0] border-2 -black rounded-full p-4" title="Look for a meal" />
+                        </div>
+                        
                     )
                 }
                 <LinkMenu url="/look" className="hidden lg:block text-textColor-primary hover:bg-[#DBDFD0] border-2 -black rounded-full p-4" title="Look for a meal" />

@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: 'standalone',
     reactStrictMode: true,
     distDir: 'build',
-    output: 'standalone',
 
     webpack(config) {
         config.module.rules.push({
@@ -14,10 +14,6 @@ const nextConfig = {
     },
     async rewrites() {
         return [
-            {
-                source: '/',
-                destination: '/atomic/pages/home',
-            },
             {
                 source: '/meals/:id',
                 destination: '/atomic/pages/meals/:id',

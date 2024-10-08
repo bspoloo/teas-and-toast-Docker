@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    output: 'standalone',
     reactStrictMode: true,
     distDir: 'build',
-    output: 'standalone',
     
     webpack(config) {
         config.module.rules.push({

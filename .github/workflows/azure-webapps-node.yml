@@ -9,9 +9,9 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKER_HUB_USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-  DOCKER_HUB_ACCESS_TOKEN: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
-  IMAGE_NAME: "myapp-image"
+  DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+  DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+  IMAGE_NAME: "teastandtoastnextjs"
 
 jobs:
   build:
@@ -23,23 +23,15 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20.x"
-      
+
       - name: Install dependencies
         run: npm install
-      
+
       - name: Build
         run: npm run build
-      
-      - name: Prepare build artifacts
-        run: |
-          mv ./build/static ./build/standalone/build
-          mv ./public ./build/standalone
-      
-      - name: Upload build artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-artifacts
-          path: ./build/standalone
+
+      - name: Build Docker Image
+        run: docker build -t ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest .
 
   test:
     needs: build
@@ -51,10 +43,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20.x"
-      
+
       - name: Install dependencies
         run: npm install
-      
+
       - name: Run tests
         run: npm test
 
@@ -63,17 +55,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
-      - name: Download build artifacts
-        uses: actions/download-artifact@v3
-        with:
-          name: build-artifacts
-          path: ./build/standalone
-
       - name: Log in to Docker Hub
-        run: echo "${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+        run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
 
-      - name: Build Docker image
-        run: docker build -t ${{ env.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest .
-
-      - name: Push Docker image to Docker Hub
-        run: docker push ${{ env.DOCKER_HUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest
+      - name: Push Docker Image to Docker Hub
+        run: docker push ${{ env.DOCKERHUB_USERNAME }}/${{ env.IMAGE_NAME }}:latest

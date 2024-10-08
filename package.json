@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "echo \"No tests defined\" && exit 0",
-    "geneate": "next build && next export"
+    "generate": "next build && next export"
   },
   "dependencies": {
     "@react-pdf/renderer": "^3.4.4",

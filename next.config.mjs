@@ -15,10 +15,6 @@ const nextConfig = {
     async rewrites() {
         return [
             {
-                source: '/',
-                destination: '/atomic/pages/home',
-            },
-            {
                 source: '/meals/:id',
                 destination: '/atomic/pages/meals/:id',
             },

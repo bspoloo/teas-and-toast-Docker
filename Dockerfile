@@ -1,27 +1,22 @@
 # Etapa de construcción
-FROM node:16 AS build
-
+FROM node:alpine AS build
 WORKDIR /app
-
-# Copia los archivos de configuración y instala dependencias
-COPY package.json package-lock.json ./
+COPY package.json ./
+COPY package-lock.json ./
 RUN npm install
-
-# Copia todo el código de la aplicación
 COPY . .
 
-# Construye la aplicación Next.js
-RUN npm run build
+# Agregar un comando para verificar si se copiaron correctamente los archivos
+RUN ls -la /app
+
+# Ejecutar la construcción y registrar la salida
+RUN npm run build --verbose
 
 # Etapa de producción
-FROM node:16 AS production
-
+FROM node:alpine AS production
 WORKDIR /app
-
-# Copia los archivos necesarios desde la etapa de construcción
 COPY --from=build /app/package.json ./
 COPY --from=build /app/node_modules ./node_modules
 COPY --from=build /app/.next ./.next
 COPY --from=build /app/public ./public
-
 CMD ["npm", "start"]

@@ -27,15 +27,14 @@ A 3-step configuration was made:
 - build docker.- runs a build and deploy of the project to docker
 
 # How to use the project locally?
-
-the link to the image on docker hub is shown: https://hub.docker.com/r/animetx/next-portfolio
+the link to the image on docker hub is shown: https://hub.docker.com/r/animetx/taste-and-toast-now
 
 To use the project locally you must have the following requirements:
 - have docker installed on the computer
 
 The next step is to open the project terminal and run the following command from the docker hub:
 
-- docker pull animetx/next-portfolio:0.1
+- docker pull animetx/taste-and-toast-now:0.1
 
 We verify that our image has been pulled correctly:
 
@@ -43,11 +42,11 @@ We verify that our image has been pulled correctly:
 
 then run the following command to run it on an available port on the computer:
 
-- docker run -p 3000:3000 animetx/next-portfolio:0.1
+- docker run -p 3000:3000 animetx/taste-and-toast-now:0.1
 
 If there is any port error, try another port:
 
-- docker run -p 3001:3000 animetx/next-portfolio:0.1
+- docker run -p 3001:3000 animetx/taste-and-toast-now:0.1 or another port
 
 As a final step, access the localhost with the selected port:
 

@@ -17,13 +17,14 @@
 
 To get started with **Taste and Toast**, simply navigate to our website and begin exploring. You can search for specific recipes, filter by category, or browse through our curated collections.
 
-## Join Us
 
-Embark on a culinary adventure with **Taste and Toast** and discover new flavors that will tantalize your taste buds. Whether you're a seasoned chef or just starting, our platform is here to inspire your cooking journey.
-
----
-
-Feel free to adjust any part of the description to better suit your vision for the platform!
+## Git Hub pipeline configuration:
+link to github repository: https://github.com/bspoloo/teas-and-toast-Docker
+Also added the configuration that cannot deploy to docker until merge is done.
+A 3-step configuration was made:
+- build the project.- builds the project
+- test.- runs a test of the project to check for errors
+- build docker.- runs a build and deploy of the project to docker
 
 # How to use the project locally?
 
@@ -51,3 +52,10 @@ If there is any port error, try another port:
 As a final step, access the localhost with the selected port:
 
 - http://localhost:3000
+
+# Project deployed in Azure
+
+As an extra step, the project was also deployed to Azure, with the same 3-step configurations in GitHub pipelines (build, test, and deploy) and the configurations mentioned in docker pipelines.
+
+Link to the GitHub repository: https://github.com/bspoloo/Teast-And-Toast-Now
+Link to the page deployed to Azure: https://teastandtoastnowweb.azurewebsites.net/

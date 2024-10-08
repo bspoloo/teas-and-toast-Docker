@@ -1,3 +1,4 @@
+
 FROM node:20-alpine AS base
 
 ### Dependencies ###
@@ -5,8 +6,7 @@ FROM base AS deps
 RUN apk add --no-cache libc6-compat git
 
 # Setup npm environment
-ENV npm_HOME="/npm" \
-    PATH="$npm_HOME:$PATH"
+ENV PATH="/npm:$PATH"
 RUN corepack enable
 RUN corepack prepare npm@latest --activate
 

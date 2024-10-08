@@ -27,7 +27,6 @@ A 3-step configuration was made:
 - build docker.- runs a build and deploy of the project to docker
 
 # How to use the project locally?
-
 the link to the image on docker hub is shown: https://hub.docker.com/r/animetx/taste-and-toast-now
 
 To use the project locally you must have the following requirements:

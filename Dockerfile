@@ -1,40 +1,61 @@
-# Etapa de construcción
-FROM node:alpine AS builder
+FROM node:20-alpine AS base
+
+### Dependencies ###
+FROM base AS deps
+RUN apk add --no-cache libc6-compat git
+
+# Setup npm environment
+ENV npm_HOME="/npm" \
+    PATH="$npm_HOME:$PATH"
+RUN corepack enable
+RUN corepack prepare npm@latest --activate
+
 WORKDIR /app
 
-# Copiar archivos de dependencias
 COPY package.json package-lock.json ./
-RUN npm ci
+RUN npm install --frozen-lockfile --prefer-frozen-lockfile
 
-# Copiar el resto de los archivos del proyecto
-COPY . .
+# Builder
+FROM base AS builder
 
-# Construir la aplicación
-RUN npm run build
+RUN corepack enable
+RUN corepack prepare npm@latest --activate
 
-# Etapa de producción
-FROM node:alpine AS runner
 WORKDIR /app
 
+COPY --from=deps /app/node_modules ./node_modules
+COPY . .
+RUN npm run build  # Cambiar 'npm build' a 'npm run build'
+
+### Production image runner ###
+FROM base AS runner
+
+# Set NODE_ENV to production
 ENV NODE_ENV=production
-ENV PORT=3000
 
-RUN addgroup -g 1001 -S nodejs
-RUN adduser -S nextjs -u 1001
+# Disable Next.js telemetry
+# Learn more here: https://nextjs.org/telemetry
+ENV NEXT_TELEMETRY_DISABLED=1
 
-# Copiar archivos necesarios desde la etapa de construcción
-COPY --from=builder /app/next.config.js ./
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/package.json ./package.json
+# Set correct permissions for nextjs user and don't run as root
+RUN addgroup nodejs
+RUN adduser -SDH nextjs
+RUN mkdir .next
+RUN chown nextjs:nodejs .next
 
-# Copiar la carpeta .next
-COPY --from=builder --chown=nextjs:nodejs /app/.next ./.next
-
-# Copiar el directorio standalone si existe
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=builder --chown=nextjs:nodejs /app/build/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/build/static ./.next/static
+COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 
 USER nextjs
 
+# Exposed port (for orchestrators and dynamic reverse proxies)
 EXPOSE 3000
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 CMD [ "wget", "-q0", "http://localhost:3000/health" ]
 
+# Run the nextjs app
 CMD ["node", "server.js"]

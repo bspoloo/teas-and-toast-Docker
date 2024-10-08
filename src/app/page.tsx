@@ -1,6 +1,3 @@
-import { Popcorn, Martini, Soup } from "lucide-react";
-import Card from '@/app/atomic/organisms/Card';
-import LinkMenu from "./atomic/atoms/LinkMenu";
 import BrowseDoM from "./atomic/organisms/BrowseDoM";
 import Presentation from "./atomic/organisms/Presentation";
 

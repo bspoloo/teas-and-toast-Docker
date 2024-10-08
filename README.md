@@ -57,5 +57,5 @@ As a final step, access the localhost with the selected port:
 
 As an extra step, the project was also deployed to Azure, with the same 3-step configurations in GitHub pipelines (build, test, and deploy) and the configurations mentioned in docker pipelines.
 
-Link to the GitHub repository: https://github.com/bspoloo/Teast-And-Toast-Now
-Link to the page deployed to Azure: https://teastandtoastnowweb.azurewebsites.net/
+- Link to the GitHub repository: https://github.com/bspoloo/Teast-And-Toast-Now
+- Link to the page deployed to Azure: https://teastandtoastnowweb.azurewebsites.net/
